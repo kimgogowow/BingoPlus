@@ -7,4 +7,8 @@ Web Bingo Game with negotiation and card exchange functions
 <!-- START_SECTION:iframe -->
 <iframe src="[https://www.example.com](https://www.figma.com/embedembed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FmpLuU8zvv3x55kFoOr1iuu%2Fbingogogo%3Ftype%3Ddesign%26t%3D1hX1gG8OP5jGpAF0-1)" width="100%" height="400"></iframe>
 <!-- END_SECTION:iframe -->
+
+
+
+
 [https://www.example.com](https://www.figma.com/embedembed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FmpLuU8zvv3x55kFoOr1iuu%2Fbingogogo%3Ftype%3Ddesign%26t%3D1hX1gG8OP5jGpAF0-1)
