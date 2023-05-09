@@ -1,0 +1,26 @@
+{% extends "templates/base.html" %}
+
+{% block links %}
+<div>
+    <a href="{% url 'login' %}" id="id_login_link">
+        Login
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="div_register_form">
+    <form method="post" action="{% url 'register' %}">
+        {% if error %}
+             <div >{{ error }}</div>
+         {% endif %}
+        <table>
+            {{form}}
+        </table>
+        {% csrf_token %}
+        <button type="submit" id="id_register_button">Register</button>
+    </form>
+</div>
+
+
+{% endblock %}

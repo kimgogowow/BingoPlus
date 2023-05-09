@@ -1,0 +1,19 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+    <p id = "id_page_name">Type in Your Token Page</p>
+
+    <div>
+        <label for="token">Your Token:</label>
+        <input type="text" id="token" name="token" required="required">
+        
+        <button onClick="joinGame()" id="join_game_button">
+            Join Game!
+        </button>
+    <button id='profile_return_button' class='right_mint_button' onclick="location.href='{% url 'home' %}'">
+    Return
+</button>
+        
+    </div>
+    
+{% endblock %}

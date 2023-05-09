@@ -1,0 +1,42 @@
+{% extends "templates/base.html" %}
+
+<img src="https://s2.loli.net/2023/03/26/zV23HdBiheZmkoI.jpg">
+
+{% block content %}
+<div id="home_body">
+    <div id="game_introduction_info">
+        <img src="https://s2.loli.net/2023/04/23/u5oGswr9Ahxzk4V.png"><a>GAME INSTRUCTION</a>
+    </div>
+
+    <div id="game_introduction_container">
+        1.Each player starts with an initial account balance of<a id="game_intro_stress1"> 200</a>, which can be used to
+        purchase <a id="game_intro_stress2">magic tools</a> and
+        participate in <a id="game_intro_stress2">auctions</a>.<br><br>
+        2.Each <a id="game_intro_stress2"></a>magic tool costs<a id="game_intro_stress1">10</a> , and it will be used in
+        the game to provide players with useful information.<br><br>
+        3.In the <a id="game_intro_stress2">FUN mode</a> game, players can choose to enter the bidding room to open
+        an auction and compete for the
+        current number, increasing their chances of winning.<br><br>
+        4.The <a id="game_intro_stress2">highest bidder</a> within the specified time can obtain the current number, and
+        the seller receives the amount
+        of the winning bid.
+    </div>
+
+
+    <div class="subtitle-div">
+        <img class="logo" src="https://s2.loli.net/2023/03/26/zV23HdBiheZmkoI.jpg">
+        <text style="height:240px" class="subtitle" id="id_page_name">
+            Welcome!<p id="home_userName">{{ user.first_name }} {{ user.last_name }}</p>
+        </text>
+    </div>
+    <div id="home_buttons">
+        <button id="ready_button" class='left_organe_button' onClick="location.href='{% url 'pre_game' %}'"> Create Game
+        </button>
+        <button id="join_button" class='left_organe_button' onClick="location.href='{% url 'token_game' %}'"> Use Token
+            to Join Game </button>
+        <button id="setting_button" class='right_mint_button' onclick="location.href='{% url 'profile' %}'"> Setting
+        </button>
+        <button id="logout_button" class='gray_button' onclick="location.href='{% url 'logout' %}'"> Exit </button>
+    </div>
+
+    {% endblock%}

@@ -1,0 +1,36 @@
+{% extends "templates/base.html" %}
+{% load static %}
+
+{% block content %}
+<p>
+    Displaying Error:
+</p>
+<p id="id_err_msg">
+    
+</p>
+
+<p>
+    Redirecting To Home Page In:
+</p>
+
+<p id = "id_countdown_time">3</p>
+
+<script>
+    loadErrorPage()
+
+    let countdown = 2
+    window.setInterval(function(){
+        let to_edit = document.getElementById("id_countdown_time")
+        if (countdown == 2){
+            to_edit.innerHTML = 2
+            countdown--
+        }else if (countdown == 1){
+            to_edit.innerHTML = 1
+            countdown--
+        }else if (countdown == 0){
+            window.location.href = "/home"
+        }
+    },1000)
+</script>
+
+{% endblock %}

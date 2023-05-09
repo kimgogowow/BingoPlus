@@ -1,0 +1,419 @@
+body {
+    background-image: url("https://s2.loli.net/2023/03/26/mUBFtafvVwGIJSW.jpg");
+    background-size: cover;
+    /* Scale the image to cover the entire body */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    font-family: 'bingoFont', sans-serif;
+    height: 700px;
+    width: auto;
+}
+
+@font-face {
+    font-family: 'bingoFont';
+    src: url('/static/font/Rainbow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#content {
+    text-align: center;
+}
+
+#logo-container {
+    margin-top: 5%;
+    text-align: center;
+}
+
+#id_username,
+#id_password,
+#id_confirm_password,
+#id_email,
+#id_first_name,
+#id_last_name {
+    width: 331px;
+    height: 68px;
+
+    font-family: 'bingoFont', sans-serif;
+    font-size: 100%;
+
+    background: #35D0BA;
+    border-radius: 70px;
+
+    margin-left: 20px;
+}
+
+#div_login_form,
+#div_register_form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+#bidding_display_button,
+#game_return_button,
+#create_game_button,
+#join_game_button,
+#home_buttons button,
+#size_submit_button,
+#size_return_button,
+#mode_return_button,
+#game_room_entrance_body button,
+#id_post_button,
+#profile_return_button,
+#home_buttons button,
+#login_buttons button,
+#id_register_button {
+    width: 207px;
+    height: 81px;
+    border-radius: 70px;
+    font-family: 'bingoFont', sans-serif;
+    font-size: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#exchange_button,
+#bid-button {
+    width: 150px;
+    height: 50px;
+    border-radius: 70px;
+    font-family: 'bingoFont', sans-serif;
+    font-size: 100%;
+    background-color: #35D0BA;
+}
+
+#create_game_button,
+#join_game_button,
+#game_room_entrance_body button {
+    background-color: #35D0BA;
+}
+
+#profile_avatar_pic button {
+    border-radius: 70px;
+    font-family: 'bingoFont', sans-serif;
+    background-color: #35D0BA;
+    width: 100px;
+    height: 40px;
+    font-size: 90%;
+}
+
+#profile_return_button {
+    margin-top: 0px;
+}
+
+#token_content input,
+#profile_avatar_form input {
+    width: 200px;
+    height: 38px;
+
+    font-family: 'bingoFont', sans-serif;
+    font-size: 100%;
+
+    background: #35D0BA;
+    border-radius: 70px;
+    margin: 5px;
+
+
+}
+
+#id_post_button {
+    background-color: #35D0BA;
+    width: 100px;
+    height: 40px;
+    font-size: 100%;
+}
+
+#exchange_button,
+#game_return_button,
+#size_return_button,
+#setting_button,
+#profile_avatar_pic input,
+#profile_return_button,
+#id_register_button {
+    background-color: #35D0BA;
+}
+
+#bidding_display_button,
+#size_submit_button,
+#ready_button,
+#id_login_button {
+    background-color: #FF9234;
+}
+
+#mode_return_button,
+#exit_button {
+    background-color: antiquewhite;
+}
+
+
+#table_login {
+    font-size: 200%;
+}
+
+#table_login label {
+    padding: 5px;
+    margin: 10px;
+}
+
+#waiting_body,
+#pre_game_body,
+#game_body,
+#token_body,
+#home_body,
+#room_size_body,
+#game_room_entrance_body {
+    padding: 10%;
+}
+
+#room_size_body form {
+    margin-top: 100px;
+    font-size: 25px;
+}
+
+#room_size_body input {
+    width: 100px;
+    height: 40px;
+    background-color: #35D0BA;
+    border-radius: 30%;
+}
+
+
+.subtitle-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.subtitle-div text {
+    margin-top: 100px;
+}
+
+#home_userName {
+
+    color: #35D0BA;
+    font-size: 100px;
+    border-color: #FF9234;
+    margin-top: 0;
+}
+
+
+#profile_avatar,
+#profile_data {
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#profile_data div {
+    margin: 10px;
+
+}
+
+#profile_avatar_pic,
+#profile_avatar_form,
+#profile_records,
+#profile_balance {
+    flex: 1;
+}
+
+#profile_avatar_form {
+    display: flex;
+    padding: 20px;
+    font-size: 20px;
+}
+
+#profile_records,
+#profile_balance,
+#profile_tools {
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    font-size: 25px;
+}
+
+#profile_tools {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#room_size_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#player,
+#mode,
+#dim {
+    height: 30px;
+    border-radius: 20%;
+    border-width: 2px;
+    font-family: 'bingoFont', sans-serif;
+    background-color: #35D0BA;
+}
+
+#previous_seen_num,
+#id_of_game,
+#id_token,
+#id_waiting_players,
+#id_num_to_wait,
+#id_userid {
+    background-color: #35D0BA;
+}
+
+
+
+#id_waiting_players img {
+
+    height: 80px;
+    border-radius: 50%;
+
+}
+
+#id_token {
+    font-size: large;
+    font-weight: 600px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px #00ff00, 0 0 80px #00ff00, 0 0 100px #00ff00, 0 0 150px #00ff00;
+
+}
+
+.tool1,
+.tool2 {
+    position: relative;
+}
+
+#profile_introduction_info:hover+#profile_introduction_container,
+#game_introduction_info:hover+#game_introduction_container,
+.tool1:hover+.tool1-container,
+.tool2:hover+.tool2-container {
+    display: block;
+}
+
+#game_intro_stress1 {
+    background-color: #FF9234;
+}
+
+#game_intro_stress2 {
+    background-color: #35D0BA;
+}
+
+#profile_introduction_container,
+#game_introduction_container,
+#tool1-container,
+#tool2-container {
+    display: none;
+    z-index: 1;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    position: absolute;
+
+}
+
+#profile_introduction_container {
+    position: fixed;
+    top: 80px;
+    left: 30px;
+}
+
+#id_buy_item_1,
+#id_buy_item_2 {
+    width: 150px;
+    height: 70px;
+    border-radius: 70px;
+    font-family: 'bingoFont', sans-serif;
+    font-size: 100%;
+    background-color: #35D0BA;
+}
+
+
+#bingo_card tr td,
+#item_bingo_card tr td {
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 30%;
+}
+
+#id_user_item1,
+#id_user_item2 {
+    background-color: #FF9234;
+}
+
+#negotiation_zone {
+
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 400px;
+    border-style: solid;
+    border-radius: 0%;
+    border-color: black;
+    border-width: 2px;
+    background-color: #F2E7E7;
+
+    display: none;
+    text-align: center;
+
+}
+
+#table_other_card {
+    justify-content: center;
+    text-align: center;
+    justify-self: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+}
+
+#profile_magic_stress,
+#id_user_item1,
+#id_user_item2 {
+    background-color: #FF9234;
+}
+
+#id_use_item_1,
+#id_use_item_2 {
+    width: 100px;
+    height: 50px;
+    border-radius: 70px;
+    font-family: 'bingoFont', sans-serif;
+    font-size: 100%;
+    font-size: 100%;
+    background-color: #35D0BA;
+}
+
+#dummy_zone {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+}
+
+#bidding_room {
+    font-weight: 700px;
+    width: 200px;
+    background-color: bisque;
+    align-self: center;
+}
+
+
+#profile_introduction_info,
+#game_introduction_info {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+}

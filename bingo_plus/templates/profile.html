@@ -1,0 +1,139 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="subtitle-div">
+    <text class="subtitle" id="id_page_name">
+        Profile Page for {{user.first_name}} {{user.last_name}}
+        <!--  {{ u.created_by.first_name }} {{ u.created_by.last_name }} -->
+    </text>
+</div>
+<br>
+
+<img src="https://s2.loli.net/2023/04/23/u5oGswr9Ahxzk4V.png" id="profile_introduction_info">
+<div id="profile_introduction_container"><a id="profile_magic_stress">Hover</a> on the Magic names to see how to use
+    them!</div>
+
+<div id="profile_avatar">
+
+    <div id="profile_avatar_pic">
+        {% if u.pic_by_default == 0 %}
+        <img src="{{ u.picture.url }}" id="id_user_picture" width="150" height="150">
+        {% endif %}
+        {% if u.pic_by_default == 1 %}
+        <img src="{{ u.picture }}" id="id_user_picture" width="150" height="150">
+        {% endif %}
+        <form enctype="multipart/form-data" action="{% url 'edit_profile_pic'%}" method="post">
+            <input type="file" name="upload" accept=".jpg, .png">
+            <br>
+            <button type="submit" class="button-profile" id="id_update_profile_button">Submit Picture</button>
+            {% csrf_token %}
+        </form>
+    </div>
+
+
+    <div id="profile_avatar_form">
+        <form method="POST" action="edit_profile_text">
+            {% if error %}
+             <div >{{ error }}</div>
+            {% endif %}
+            <label> Username: </label>
+            <input type="text" readonly="readonly" value={{u.user.username}}></input><br>
+            <label> First Name:</label>
+            <input type="text" name="edit_firstname" value={{u.user.first_name}}></input><br>
+            <label> Last Name: </label>
+            <input type="text" name="edit_lastname" value={{u.user.last_name}}></input><br>
+            <label> Email: </label>
+            <input type="text" readonly="readonly" name="edit_email" value={{u.user.email}}></input><br>
+            {% csrf_token %}
+            <button type="submit" id="id_post_button">Edit</button>
+        </form>
+    </div>
+</div>
+
+<div id="profile_data">
+    <div id="profile_records">
+        <p> Won: {{ u.won_times }} Times </p>
+        <p> Lost: {{ u.lost_times }} Times </p>
+    </div>
+
+    <div id="profile_balance">
+        <p> Account Balance </p>
+        <p id="user_account_balance">
+            $ {{ u.account_balance}}
+        </p>
+    </div>
+
+    <div id="profile_tools">
+        <div>
+            <p><span id="tool1" class="tool1">Magic 1</span>Count:</p>
+            <p id="id_item_1_count">
+                {{ u.item_1_count }}
+            </p>
+
+            <button id='id_buy_item_1'>
+                Buy
+            </button>
+        </div>
+
+        <div id="tool1-container">
+            <p>"View how many
+            <p style="background-color: bisque;font-weight: 700;">matching numbers</p> the player with most matching numbers in a row already is still missing to achieve
+            victory."</p>
+        </div>
+
+
+        <div>
+            <p><span id="tool2" class="tool2">Magic 2</span>Count:</p>
+            <p id="id_item_2_count">
+                {{ u.item_2_count }}
+            </p>
+            <button id='id_buy_item_2'>
+                Buy
+            </button>
+
+        </div>
+
+        <div id="tool2-container">
+            <p>"View the
+            <p style="background-color: bisque;font-weight: 700;">card board</p> of the player that has the maximum matching numbers"</p>
+        </div>
+
+        <p id="error_msg_for_buying">
+        </p>
+    </div>
+
+    <script>
+        document.getElementById("id_buy_item_1").addEventListener("click", buyItem1, false)
+        document.getElementById("id_buy_item_2").addEventListener("click", buyItem2, false)
+
+        //show tool tips
+        var tool1Tooltip = document.getElementById("tool1");
+        var tool1TooltipBox = document.getElementById("tool1-container");
+
+        var tool2Tooltip = document.getElementById("tool2");
+        var tool2TooltipBox = document.getElementById("tool2-container");
+
+        tool1Tooltip.addEventListener("mouseover", function () {
+            tool1TooltipBox.style.display = "block";
+        });
+
+        tool1Tooltip.addEventListener("mouseout", function () {
+            tool1TooltipBox.style.display = "none";
+        });
+
+        tool2Tooltip.addEventListener("mouseover", function () {
+            tool2TooltipBox.style.display = "block";
+        });
+
+        tool2Tooltip.addEventListener("mouseout", function () {
+            tool2TooltipBox.style.display = "none";
+        });
+
+    </script>
+</div>
+
+<button id='profile_return_button' class='right_mint_button' onclick="location.href='{% url 'home' %}'">
+    Return
+</button>
+
+{% endblock %}

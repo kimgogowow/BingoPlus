@@ -1,0 +1,27 @@
+{% extends "templates/base.html" %}
+{% load static %}
+
+{% block content %}
+<p>
+    OAuth Login Successful!
+</p>
+<p id="id_oauth_login">
+    {{ to_dir }}
+</p>
+
+<p id = "id_oauth_game">
+    {{ mode }}
+</p>
+
+<script>
+    
+
+    let oauth_dir = document.getElementById("id_oauth_login")
+    if (oauth_dir.innerHTML == "home"){
+        window.location.href = "/home"
+    }else{
+        window.location.href = "/game/?mode=" + document.getElementById("id_oauth_game").innerHTML
+    }
+</script>
+
+{% endblock %}

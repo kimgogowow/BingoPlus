@@ -1,0 +1,182 @@
+{% extends "templates/base.html" %}
+{% load static %}
+
+{% block content %}
+<br><br><br><br>
+<p id="id_page_name" style="font-size: 40px;">BingoPlus</p>
+
+
+<div id="bingo_num">
+
+</div>
+
+<table id="bingo_card" align='center'>
+
+</table>
+
+<div>
+    Your Game Mode:
+    <div id="id_game_mode">{{ mode }}</div>
+
+    User has: <a id="id_user_item1"></a> of Magic Tool 1
+
+    <button id='id_use_item_1'>
+        Use
+    </button><br>
+
+    User has: <a id="id_user_item2"> </a> of Magic Tool 2
+
+
+    <button id='id_use_item_2'>
+        Use
+    </button>
+    <div id="table_other_card">
+        <table id="item_bingo_card">
+
+        </table>
+
+    </div>
+
+
+    <p id="id_item_status">
+
+    </p>
+    <div id="dummy1" style="display:none;"></div>
+    <div id="dummy2" style="display:none;"></div>
+    <div id="dummy3" style="display:none;"></div>
+    <div id="dummy4" style="display:none;"></div>
+    <div id="dummy5" style="display:none;"></div>
+
+
+</div>
+
+
+<br>
+<p> Request to get current number on your card! Valid only on Fun Mode</p>
+
+<button id="bidding_display_button" onclick="showFunction()">
+    Bidding Room Entrance
+</button>
+<button id="game_return_button" style="background-color: gray;" onclick="location.href='{% url 'home' %}'">Return
+    to Home Page</button>
+
+<script>
+    function showFunction() {
+        var zone = document.getElementById("negotiation_zone");
+        if (zone.style.display === "none") {
+            zone.style.display = "block";
+        } else {
+            zone.style.display = "none";
+        }
+    }
+
+</script>
+
+
+<div id="negotiation_zone">
+
+    <h1 id="bidding_room">Bidding Room</h1>
+
+    <div>
+        For Seller:<br>
+        <label for="open-price">Open price to start:</label>
+        <input id="open-price" type="text" name="Open price" autofocus>
+        <br>
+        <button onclick="newBid()" id="exchange_button">
+            Request for Exchange
+        </button>
+    </div>
+
+    <div>
+        For Buyer:<br>
+        <label for="bid-price">Raise price to bid:</label>
+        <input id="bid-price" type="text" name="Bid price" autofocus>
+        <br>
+        <button id="bid-button" onclick="sendBid()">Bid</button>
+        <br>
+        <span id="error" class="error"></span>
+    </div>
+
+
+
+{#    <div id="message" class="sub-title">Connecting to WebSocket</div>#}
+    <div id="bidding_dashboard">
+        <h2 id="countdown">Countdown: </h2>
+        <h2 id="curr-price">Current Price: </h2>
+        <h2 id="highest-bidder">Highest Bidder: </h2>
+        <h2 id="curr-item">Current Item: </h2>
+        <h2 id="curr-seller">Current Seller: </h2>
+        <h2 id="balance">Balance: </h2>
+    </div>
+
+</div>
+
+
+<script>
+
+    $('#dummy1').css('background-color', 'transparent');
+    $('#dummy2').css('background-color', '#F0E68C');
+    $('#dummy3').css('background-color', '#90EE90');
+
+    $('#dummy4').css('background-color', '#32CD32');
+    $('#dummy5').css('background-color', 'green');
+
+    loadGame()
+
+    document.getElementById("id_use_item_1").addEventListener("click", useItem1)
+    document.getElementById("id_use_item_2").addEventListener("click", useItem2)
+
+
+
+    window.onload = onloadAction;
+    //window.setInterval(getNum, 1000);
+    /*while (document.getElementById("bingo_num").innerHTML != "You Win!"){
+        window.setInterval(getNum, 5000);
+    }*/
+
+    let intervalId = window.setInterval(gameLoop, 5000);
+
+    /*if (document.getElementById('bingo_num').innerHTML == "You Win!"){
+window.clearInterval(intervalId)
+}*/
+
+    //play the sound
+    var audio = new Audio();
+
+
+    const home_button = document.getElementById("game_return_button");
+    var div = document.getElementById('bingo_num');
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.type === 'childList') {
+                if (mutation.target.innerHTML === 'You Win!') {
+                    // Call playAudio() when innerHTML changes
+                    audio.src = "{% static 'win.mp3' %}"; // set the audio source
+                    audio.play(); // play the audio
+                    home_button.disabled = false;
+                    home_button.style.backgroundColor = "#35D0BA";
+                } else if (mutation.target.innerHTML.includes(" won already...")) {
+                    audio.src = "{% static 'lose.mp3' %}"; // set the audio source
+                    audio.play(); // play the audio
+                    home_button.disabled = false;
+                    home_button.style.backgroundColor = "#35D0BA";
+                } else {
+                    const audio = new Audio('{% static 'bubble.wav' %}')
+                    audio.play()
+                    // read numbers
+                    let numberRead = mutation.target.innerHTML
+                    numberRead = numberRead.split(": ")[1]
+                    var utterance = new SpeechSynthesisUtterance(numberRead);
+                    utterance.rate = 1.4;
+                    speechSynthesis.speak(utterance);
+                    home_button.disabled = true;
+                    home_button.style.backgroundColor = "gray";
+                }
+            }
+        });
+    });
+    observer.observe(div, { childList: true });
+
+
+</script>
+{% endblock %}

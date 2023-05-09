@@ -1,0 +1,84 @@
+body {
+    font-family: 'bingoFont', sans-serif;
+    width: 1300px;
+    display: flex;
+    flex-direction: column;
+}
+
+@font-face {
+    font-family: 'bingoFont';
+    src: url('/static/font/Rainbow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#up {
+    display: flex;
+    flex-direction: row;
+}
+
+
+#bingo_page {
+    flex: 3;
+    background-image: url("https://s2.loli.net/2023/03/26/mUBFtafvVwGIJSW.jpg");
+    background-size: cover;
+    /* Scale the image to cover the entire body */
+    background-repeat: no-repeat;
+    text-align: center;
+
+
+}
+
+#chating_room {
+    flex: 1;
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+}
+
+
+#game_return_button {
+    width: 207px;
+    height: 81px;
+    border-radius: 70px;
+    font-family: 'bingoFont', sans-serif;
+    font-size: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #FF9234;
+
+}
+
+#bingo_page button {
+    width: 207px;
+    height: 81px;
+    border-radius: 70px;
+    font-family: 'bingoFont', sans-serif;
+    font-size: 90%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #35D0BA;
+    ;
+}
+
+#negotiation_zone {
+    text-align: center;
+    align-items: center;
+}
+
+#bingo_card tr td,
+#item_bingo_card tr td {
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 30%;
+}
+
+#table_other_card {}
+
+#id_user_item1,
+#id_user_item2 {
+    background-color: #FF9234;
+}

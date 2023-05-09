@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <script src="{% static 'auction/controller.js' %}" type="text/javascript"></script>
+    <title>Auction</title>
+</head>
+<body>
+<div>
+    <label for="bid-price">Raise price to bid:</label>
+    <input id="bid-price" type="text" name="Bid price" autofocus>
+    <button id="bid-button" onclick="sendBid()">Bid</button>
+    <span id="error" class="error"></span>
+</div>
+
+<div>
+    <label for="open-price">Open price to start:</label>
+    <input id="open-price" type="text" name="Open price" autofocus>
+    <button id="open-button" onclick="newBid()">Open</button>
+</div>
+
+<div id="message" class="sub-title">Connecting to WebSocket</div>
+<h1 id="countdown">Countdown: </h1>
+<h1 id="curr-price">Current Price: </h1>
+<h1 id="highest-bidder">Highest Bidder: </h1>
+<script>
+    window.onload = connectToServer
+</script>
+</body>
+</html>
